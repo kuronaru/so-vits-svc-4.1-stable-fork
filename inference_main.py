@@ -13,7 +13,8 @@ chunks_dict = infer_tool.read_temp("inference/chunks_temp.json")
 
 def main():
     import argparse
-
+    import os
+    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:128'
     parser = argparse.ArgumentParser(description='sovits4 inference')
 
     # 一定要设置的部分

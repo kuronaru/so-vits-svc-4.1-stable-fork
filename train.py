@@ -40,6 +40,7 @@ def main():
     n_gpus = torch.cuda.device_count()
     os.environ['MASTER_ADDR'] = 'localhost'
     os.environ['MASTER_PORT'] = hps.train.port
+    os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:128'
 
     mp.spawn(run, nprocs=n_gpus, args=(n_gpus, hps,))
 
